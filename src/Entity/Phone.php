@@ -41,10 +41,6 @@ class Phone
     #[ORM\Column]
     private ?int $guaranteed = null;
 
-    #[ORM\ManyToOne(inversedBy: 'phones')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Company $company = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -154,18 +150,6 @@ class Phone
     public function setGuaranteed(int $guaranteed): self
     {
         $this->guaranteed = $guaranteed;
-
-        return $this;
-    }
-
-    public function getCompany(): ?Company
-    {
-        return $this->company;
-    }
-
-    public function setCompany(?Company $company): self
-    {
-        $this->company = $company;
 
         return $this;
     }

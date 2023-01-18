@@ -39,28 +39,23 @@ class PhoneRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Phone[] Returns an array of Phone objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    // return Phone list for Api 
+    public function apiFindAll(): array
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->select('p.id','p.name','p.price','p.storage','p.screenSize','p.weight','p.pictureResolution','p.simCard','p.refurbished','p.guaranteed');
+            $query = $qb->getQuery();
+            return $query->execute();
+    }
 
-//    public function findOneBySomeField($value): ?Phone
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+   public function apiFindOneBy($id): array
+   {
+       return $this->createQueryBuilder('p')
+            ->select('p.id','p.name','p.price','p.storage','p.screenSize','p.weight','p.pictureResolution','p.simCard','p.refurbished','p.guaranteed')
+            ->andWhere('p.id = :val')
+            ->setParameter('val', $id)
+            ->getQuery()
+            ->getOneOrNullResult()
+       ;
+   }
 }
