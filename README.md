@@ -2,11 +2,11 @@
 
 Init project
 --------------------------------------------
-1 - Clone this repository
-2 - configure your environment in .env.local
-3 - make "composer install"
-4 - make php "bin/console doctrine:fixtures:load" ( you need to be in development environment ) 
-5 - symfony server:start
+1 - Clone this repository <br/>
+2 - configure your environment in .env.local  <br/>
+3 - make "composer install"  <br/>
+4 - make php "bin/console doctrine:fixtures:load" ( you need to be in development environment )   <br/>
+5 - symfony server:start  <br/>
 
 Authentification
 --------------------------------------------
