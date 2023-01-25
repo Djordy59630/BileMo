@@ -12,12 +12,16 @@ Authentification
 --------------------------------------------
 ( if you use postman for try this app, add in headers "Content-Type : application/json" )  <br/>
 
-1 - url for token method [POST] : http://127.0.0.1:8000/api/login_check  <br/>
-  - in body add :  <br/>
-                {  <br/>
-                  "username": "client-081@test.com",  <br/>
-                  "password": "client-081"  <br/>
-                }  <br/>
+1 - url for token method [POST]:
+
+   http://127.0.0.1:8000/api/login_check  
+
+  - in body add :
+  
+                {
+                  "username": "client-081@test.com",
+                  "password": "client-081" 
+                }
 
 2 - copy Token and from now you must use this token everywhere <br/>
 
@@ -29,6 +33,7 @@ consult the list of BileMo products;
     [GET] - http://127.0.0.1:8000/api/phone/
   
 consult the details of a BileMo product;
+
     [GET] - http://127.0.0.1:8000/api/phone/{id}
     
 consult the list of registered users linked to a client on the website;
