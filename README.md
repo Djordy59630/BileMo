@@ -10,16 +10,16 @@ Init project
 
 Authentification
 --------------------------------------------
-( if you use postman for try this app, add in headers "Content-Type : application/json" )
+( if you use postman for try this app, add in headers "Content-Type : application/json" )  <br/>
 
-1 - url for token method [POST] : http://127.0.0.1:8000/api/login_check 
-  - in body add : 
-                {
-                  "username": "client-081@test.com",
-                  "password": "client-081"
-                }
+1 - url for token method [POST] : http://127.0.0.1:8000/api/login_check  <br/>
+  - in body add :  <br/>
+                {  <br/>
+                  "username": "client-081@test.com",  <br/>
+                  "password": "client-081"  <br/>
+                }  <br/>
 
-2 - copy Token and from now you must use this token everywhere
+2 - copy Token and from now you must use this token everywhere <br/>
 
 Api route :
 --------------------------------------------
