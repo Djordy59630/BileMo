@@ -39,23 +39,4 @@ class PhoneRepository extends ServiceEntityRepository
         }
     }
 
-    // return Phone list for Api 
-    public function apiFindAll(): array
-    {
-        $qb = $this->createQueryBuilder('p')
-            ->select('p.id','p.name','p.price','p.storage','p.screenSize','p.weight','p.pictureResolution','p.simCard','p.refurbished','p.guaranteed');
-            $query = $qb->getQuery();
-            return $query->execute();
-    }
-
-   public function apiFindOneBy($id): array
-   {
-       return $this->createQueryBuilder('p')
-            ->select('p.id','p.name','p.price','p.storage','p.screenSize','p.weight','p.pictureResolution','p.simCard','p.refurbished','p.guaranteed')
-            ->andWhere('p.id = :val')
-            ->setParameter('val', $id)
-            ->getQuery()
-            ->getOneOrNullResult()
-       ;
-   }
 }
