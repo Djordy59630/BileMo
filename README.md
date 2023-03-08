@@ -6,9 +6,9 @@ Init project
 2 - configure your environment in .env.local  <br/>
 3- make "composer install"  <br/>
 4 - Create database "php bin/console d:d:c" <br/>
-  - use migrations "php bin/console d:m:m" <br/>
-5 - make "php bin/console doctrine:fixtures:load" ( you need to be in development environment )   <br/>
-6 - symfony server:start  <br/>
+5 - use migrations "php bin/console d:m:m" <br/>
+6 - make "php bin/console doctrine:fixtures:load" ( you need to be in development environment )   <br/>
+7 - symfony server:start  <br/>
 
 Authentification
 --------------------------------------------
