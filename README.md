@@ -50,4 +50,8 @@ add a new user linked to a customer;
 
 delete a user added by a customer.
 
-   [DELETE] - http://127.0.0.1:8000/api/user/{id}
+      [DELETE] - http://127.0.0.1:8000/api/user/{id}
+   
+Documentations
+
+    [GET] - http://127.0.0.1:8000/api/user/api/doc
