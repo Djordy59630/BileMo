@@ -67,13 +67,31 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             {
                 $qb->where('c.id = :customer')
                 ->setParameter('customer', $customerId);
-                dd('test');
             }
 
              $query = $qb->getQuery();
              return $query->execute();
      }
 
+
+    // return USers list for Api 
+    public function apiFindOne($isSuperAdmin, $customerId, $userId): array
+    {
+        $qb = $this->createQueryBuilder('u')
+           ->select('u.id','u.email','u.roles', 'c.id as customer_id', 'c.name')
+           ->Join('u.customer', 'c')
+           ->where('u.id = :user')
+           ->setParameter('user', $userId);
+           if ( !$isSuperAdmin )
+           {
+               $qb->andWhere('c.id = :customer')
+               ->setParameter('customer', $customerId);
+           }
+
+            $query = $qb->getQuery();
+            return $query->execute();
+    }
+    
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */
