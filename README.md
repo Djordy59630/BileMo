@@ -38,8 +38,16 @@ consult the details of a BileMo product;
     
 consult the list of registered users linked to a client on the website;
 
+    [GET] - http://127.0.0.1:8000/api/user/
+
 consult the details of a registered user linked to a client;
+
+    [GET] - http://127.0.0.1:8000/api/user/{id}
 
 add a new user linked to a customer;
 
+    [POST] - http://127.0.0.1:8000/api/user/
+
 delete a user added by a customer.
+
+   [DELETE] - http://127.0.0.1:8000/api/user/{id}
