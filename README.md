@@ -4,8 +4,8 @@ Init project
 --------------------------------------------
 1 - Clone this repository <br/>
 2 - configure your environment in .env.local  <br/>
-3 - Create database "php bin/console d:d:c" <br/>
-4 - make "composer install"  <br/>
+3- make "composer install"  <br/>
+4 - Create database "php bin/console d:d:c" <br/>
 5 - make "php bin/console doctrine:fixtures:load" ( you need to be in development environment )   <br/>
 6 - symfony server:start  <br/>
 
