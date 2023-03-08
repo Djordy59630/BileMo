@@ -28,16 +28,39 @@ class AppFixturesUser extends Fixture
         {
             $userId = $customer->getId();
             
-            for($i = 0; $i <= 9 ; $i++)
+            for($i = 0; $i <= 3 ; $i++)
             {
                 $user = new User();
-                $user->setEmail('client-' . $i . $userId .'@test.com');
-                $user->setPassword($this->userPasswordHasher->hashPassword($user, 'client-'. $i . $userId));
+                $user->setEmail('user-' . $i . $userId .'@test.com');
+                $user->setPassword($this->userPasswordHasher->hashPassword($user, 'user-'. $i . $userId));
                 $user->setRoles(['ROLE_CLIENT']);
                 $user->setCustomer($customer);
                 $manager->persist($user);
                 $manager->flush();
             }
+
+            for($i = 0; $i <= 3 ; $i++)
+            {
+                $user = new User();
+                $user->setEmail('admin-' . $i . $userId .'@test.com');
+                $user->setPassword($this->userPasswordHasher->hashPassword($user, 'admin-'. $i . $userId));
+                $user->setRoles(['ROLE_ADMIN']);
+                $user->setCustomer($customer);
+                $manager->persist($user);
+                $manager->flush();
+            }
+
+            for($i = 0; $i <= 1 ; $i++)
+            {
+                $user = new User();
+                $user->setEmail('superadmin-' . $i . $userId .'@test.com');
+                $user->setPassword($this->userPasswordHasher->hashPassword($user, 'superadmin-'. $i . $userId));
+                $user->setRoles(['ROLE_SUPER_ADMIN']);
+                $user->setCustomer($customer);
+                $manager->persist($user);
+                $manager->flush();
+            }
+
         }
     }
 
