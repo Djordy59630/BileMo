@@ -60,12 +60,12 @@ Documentations
 
 Status codes
 -----------------
-200 : OK
-201 : Created
-204 : No Content (delete)
-400 : Bad Request
-401 : Unauthorized
-403 : Forbidden
-404 : Not Found
+200 : OK <br/>
+201 : Created <br/>
+204 : No Content (delete) <br/>
+400 : Bad Request <br/>
+401 : Unauthorized <br/>
+403 : Forbidden <br/>
+404 : Not Found <br/>
 409 : Conflict
 
