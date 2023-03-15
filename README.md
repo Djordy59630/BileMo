@@ -57,3 +57,15 @@ delete a user added by a customer.
 Documentations
 
     [GET] - http://127.0.0.1:8000/api/user/api/doc
+
+Status codes
+-----------------
+200 : OK
+201 : Created
+204 : No Content (delete)
+400 : Bad Request
+401 : Unauthorized
+403 : Forbidden
+404 : Not Found
+409 : Conflict
+
