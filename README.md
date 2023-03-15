@@ -8,7 +8,7 @@ Init project
 4 - Create database "php bin/console d:d:c" <br/>
 5 - use migrations "php bin/console d:m:m" <br/>
 6 - make "php bin/console doctrine:fixtures:load" ( you need to be in development environment )   <br/>
-7 - generate keys for jwt auth "php bin/console lexik:jwt:generate-keypair"
+7 - generate keys for jwt auth "php bin/console lexik:jwt:generate-keypair"  <br/>
 8 - symfony server:start  <br/>
 
 Authentification
