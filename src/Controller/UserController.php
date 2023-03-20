@@ -110,7 +110,7 @@ class UserController extends AbstractController
         // on crée un lien pour accéder au show du nouvel utilisateur
         $location = $urlGenerator->generate('app_user_show', ['id' => $user[0]["id"]], UrlGeneratorInterface::ABSOLUTE_URL);
 
-        // Remove all cache keys tagged with "bar"
+        // Remove all cache keys tagged with "usercache"
         $cachePool->invalidateTags(['UsersCache']);
 
         // on return en ajotant le lien du show dans le header de la reponse
@@ -158,7 +158,7 @@ class UserController extends AbstractController
 
 
     #[Route('/{id}', name: 'app_user_delete', methods: ['DELETE'])]
-    public function delete(Request $request, User $user, UserRepository $userRepository, EntityManagerInterface $em): Response
+    public function delete(Request $request, User $user, UserRepository $userRepository, EntityManagerInterface $em, TagAwareCacheInterface $cachePool): Response
     {
         try
         {
@@ -175,6 +175,10 @@ class UserController extends AbstractController
             // on supprime l'utilisateur de la base de données 
             $em->remove($user);
             $em->flush();
+
+             // Remove all cache keys tagged with "usercache"
+            $cachePool->invalidateTags(['UsersCache']);
+
             // on return HTTP_NO_CONTENT
             return new JsonResponse(null, Response::HTTP_NO_CONTENT);
         }
