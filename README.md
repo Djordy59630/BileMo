@@ -4,11 +4,12 @@ Init project
 --------------------------------------------
 1 - Clone this repository <br/>
 2 - configure your environment in .env.local  <br/>
-3- make "composer install"  <br/>
+3 - make "composer install"  <br/>
 4 - Create database "php bin/console d:d:c" <br/>
 5 - use migrations "php bin/console d:m:m" <br/>
 6 - make "php bin/console doctrine:fixtures:load" ( you need to be in development environment )   <br/>
-7 - symfony server:start  <br/>
+7 - generate keys for jwt auth "php bin/console lexik:jwt:generate-keypair"  <br/>
+8 - symfony server:start  <br/>
 
 Authentification
 --------------------------------------------
@@ -57,3 +58,15 @@ delete a user added by a customer.
 Documentations
 
     [GET] - http://127.0.0.1:8000/api/user/api/doc
+
+Status codes
+-----------------
+200 : OK <br/>
+201 : Created <br/>
+204 : No Content (delete) <br/>
+400 : Bad Request <br/>
+401 : Unauthorized <br/>
+403 : Forbidden <br/>
+404 : Not Found <br/>
+409 : Conflict
+
