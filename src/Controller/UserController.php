@@ -65,7 +65,7 @@ class UserController extends AbstractController
     // On sécurise la route new uniquement pour les admin ou super admin
     #[SecurityRoute("is_granted(ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN')")]
     #[Route('/', name: 'app_user_new', methods: ['POST'])]
-    public function new(Request $request, UserRepository $userRepository, UrlGeneratorInterface $urlGenerator , SerializerInterface $serializer, CustomerRepository $customerRepository,UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $em): Response
+    public function new(Request $request, UserRepository $userRepository,TagAwareCacheInterface $cachePool, UrlGeneratorInterface $urlGenerator , SerializerInterface $serializer, CustomerRepository $customerRepository,UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $em): Response
     {
 
         try
@@ -109,6 +109,10 @@ class UserController extends AbstractController
         $jsonUser = $serializer->serialize($user, 'json');
         // on crée un lien pour accéder au show du nouvel utilisateur
         $location = $urlGenerator->generate('app_user_show', ['id' => $user[0]["id"]], UrlGeneratorInterface::ABSOLUTE_URL);
+
+        // Remove all cache keys tagged with "bar"
+        $cachePool->invalidateTags(['UsersCache']);
+
         // on return en ajotant le lien du show dans le header de la reponse
         return new JsonResponse($jsonUser, Response::HTTP_CREATED, ["Location" => $location], true);
         }
